@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const links = [
   { id: 1, name: 'Home', icon: <Home /> ,path:"/home" },
-  { id: 2, name: 'Profile', icon: <User /> ,path:"/issues"},
+  { id: 2, name: 'Profile', icon: <User /> ,path:"/problems"},
   { id: 3, name: 'Settings', icon: <Settings /> ,path:"/pullRequests"},
   { id: 4, name: 'Messages', icon: <Info /> ,path:"/search"},
   { id: 5, name: 'Search', icon: <Search /> ,path:"/inbox"},
