@@ -5,7 +5,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-  } from "@/components/ui/sheet"
+  } from "./components/ui/sheet"
 import { MenuIcon } from "lucide-react"; 
   function Menu({side}) {
     return ( 

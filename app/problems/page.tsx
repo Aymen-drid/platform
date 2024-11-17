@@ -1,4 +1,4 @@
-import { ResizableHandle,ResizablePanel,ResizablePanelGroup } from "../../components/ui/resiazble-modified";
+import { ResizableHandle,ResizablePanel,ResizablePanelGroup } from "../components/ui/resiazble-modified";
 import * as React from 'react';
 import Description from './descryption';
 import IDE from "./codeEditior/monaco";
@@ -12,7 +12,7 @@ export default function ProblemsPage (props: IProblemsPageProps) {
       direction="horizontal"
       className="rounded-lg border flex-grow  "
     >
-      <ResizablePanel >
+      <ResizablePanel  defaultSize={100}>
         <div className="flex h-full items-center justify-center p-6 font-semibold">
           
             <Description/>
@@ -20,7 +20,7 @@ export default function ProblemsPage (props: IProblemsPageProps) {
         </div>
       </ResizablePanel>
       <ResizableHandle />
-      <ResizablePanel >
+      <ResizablePanel defaultSize={60} >
         <ResizablePanelGroup direction="vertical">
           <ResizablePanel className="  flex flex-col" >
                   
@@ -28,7 +28,7 @@ export default function ProblemsPage (props: IProblemsPageProps) {
                  
           </ResizablePanel>
           <ResizableHandle />
-          <ResizablePanel >
+          <ResizablePanel defaultSize={40} >
             <div className="flex h-full items-center justify-center p-6">
               <span className="font-semibold">Three</span>
             </div>

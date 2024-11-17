@@ -96,3 +96,7 @@ body {
     @apply bg-primary
   }
 }
+.example{
+  display: flex ;
+
+}
