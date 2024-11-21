@@ -10,7 +10,7 @@ import { MenuIcon } from "lucide-react";
   function Menu({side}) {
     return ( 
         <Sheet>
-  <SheetTrigger className="border-2 rounded-md font-medium transition-all size-9  pl-1 text-foreground "><MenuIcon ></MenuIcon></SheetTrigger>
+  <SheetTrigger className=" font-medium transition-all size-9  pl-1 text-foreground "><MenuIcon ></MenuIcon></SheetTrigger>
   <SheetContent side={side}>
     <SheetHeader>
       <SheetTitle>Are you absolutely sure?</SheetTitle>

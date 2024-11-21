@@ -1,15 +1,17 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Nav from "./globalNav";
 import Header from "./Header";
-import Head from "next/head";
+
 import { ThemeProvider } from "next-themes";
+import Loading from "./components/ui/loading";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -22,20 +24,22 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  
   return (
     <html lang="en">
-    <body>
-      <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <Header className="bg-primary"/>
-              {children}
-            </ThemeProvider>
-    </body>
+      <body>
+        {/* ThemeProvider automatically handles hydration */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Suspense fallback={<Loading />}>
+            <Header />
+            {children}
+          </Suspense>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

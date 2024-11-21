@@ -14,7 +14,7 @@ interface IDEProps {
   
     return (
       <div className={`  ${className}`}>
-        <div className="w-full h-full p-4 border">
+        <div className="w-full h-full p-4 ">
           <form action="#" onSubmit={handleSubmit}>
             <div >
               <label htmlFor="comment" className="sr-only">

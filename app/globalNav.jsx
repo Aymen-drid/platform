@@ -1,6 +1,7 @@
 "use client"
 import { Button } from '@nextui-org/react';
-import { ModeToggle } from './toggle-theme-switcher';
+
+import { useTheme } from "next-themes"
 import {
   Home ,
   User ,
@@ -8,37 +9,47 @@ import {
   Mail ,
   Search ,
   Info ,
+  Moon,
 } from "lucide-react";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-const links = [
-  { id: 1, name: 'Home', icon: <Home /> ,path:"/home" },
-  { id: 2, name: 'Profile', icon: <User /> ,path:"/problems"},
-  { id: 3, name: 'Settings', icon: <Settings /> ,path:"/pullRequests"},
-  { id: 4, name: 'Messages', icon: <Info /> ,path:"/search"},
-  { id: 5, name: 'Search', icon: <Search /> ,path:"/inbox"},
-
-];
 
 
 const Nav = () => {
+  const {theme,setTheme } = useTheme();
+function HandelThemeing(theme) {
+  if (theme === "light") {
+    return "dark"
+  }
+  else {
+    return "light"
+  }
+}
+
+
   const pathName = usePathname();
-  console.log(pathName)
+  const links = [
+    { id: 1, name: 'Home', icon: <Home /> ,path:"/home" },
+    { id: 2, name: 'Profile', icon: <User /> ,path:"/problems"},
+    { id: 3, name: 'Settings', icon: <Settings /> ,path:"/pullRequests"},
+    { id: 4, name: 'Messages', icon: <Info /> ,path:"/search"},
+    { id: 5, name: 'Search', icon: <Search /> ,path:"/"},
+    { id: 5, name: 'Search', icon: <Moon onClick={()=>setTheme(HandelThemeing(theme))}/> ,path:""}
+  
+  
+  ];
+
   return (
     <nav className="flex gap-6 ">
       {links.map((link, index) => {
         return (
           <Button
-          key={index} size="sm" className="border-2 rounded-md font-medium transition-all size-9  p-2 text-foreground ">
+          key={index} size="sm" className={`${link.path === pathName? 'border-b border-primary'  : '  font-medium transition-all size-9  p-2 text-foreground '}`}>
             <Link
               href={link.path}
               
-              className={`${
-                link.path === pathName
-                  ? ' '
-                  : ''
-              }`}
+              
             >
 
             {link.icon}
@@ -46,7 +57,6 @@ const Nav = () => {
           </Button>
         )
       })}
- <ModeToggle/>
     </nav>
   )
 }
