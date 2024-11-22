@@ -3,7 +3,7 @@ import {Card, Skeleton} from "@nextui-org/react";
 export default function Loading() {
   return (
     <Card className="w-[200px] space-y-5 p-4" radius="lg">
-        <p>Aymen what are you waiting for</p>
+        
       <Skeleton className="rounded-lg">
         <div className="h-24 rounded-lg bg-default-300"></div>
       </Skeleton>

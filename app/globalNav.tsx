@@ -17,8 +17,9 @@ import { usePathname } from 'next/navigation';
 
 
 const Nav = () => {
-  const {theme,setTheme } = useTheme();
-function HandelThemeing(theme) {
+  const {setTheme } = useTheme();
+const theme={theme:"dark"};
+function HandelTheming({ theme }: { theme: string }) {
   if (theme === "light") {
     return "dark"
   }
@@ -35,7 +36,7 @@ function HandelThemeing(theme) {
     { id: 3, name: 'Settings', icon: <Settings /> ,path:"/pullRequests"},
     { id: 4, name: 'Messages', icon: <Info /> ,path:"/search"},
     { id: 5, name: 'Search', icon: <Search /> ,path:"/"},
-    { id: 5, name: 'Search', icon: <Moon onClick={()=>setTheme(HandelThemeing(theme))}/> ,path:""}
+    { id: 5, name: 'Search', icon: <Moon onClick={()=>setTheme(HandelTheming(theme))}/> ,path:""}
   
   
   ];
